@@ -1,0 +1,15 @@
+gini:
+  container_name: python
+  image: python:3.6
+  ports:
+    - 6000:6000/tcp
+  restart: always
+  volumes:
+    - ../common/localtime:/etc/localtime:ro
+    - ../common/tmp:/tmp
+    - ../..:/data
+  working_dir: /data/python
+  command:
+    - sh
+    - -c
+    - "while true; do sleep 5d; done"
